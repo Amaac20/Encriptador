@@ -1,28 +1,45 @@
-texto = input("Ingrese un texto: ")
+import random
 
-llave = "Uide2026"
+texto = "Uide"
+
+def generarLlave(longitud):
+
+    llave = ""
+
+    for i in range(longitud):
+        llave += random.choice("01")
+
+    return llave
+
 
 def xor_stream(texto, llave):
+
     resultado = ""
 
     for i in range(len(texto)):
 
         letra = ord(texto[i])
 
-        bit_llave = ord(llave[i % len(llave)])
+        bitLlave = int(llave[i])
 
-        cifrado = letra ^ bit_llave
+        cifrado = letra ^ bitLlave
 
         resultado += chr(cifrado)
 
     return resultado
 
 
+
+llave = generarLlave(len(texto))
+
+print("Texto original:", texto)
+
 print("Llave:", llave)
+
 
 textoCifrado = xor_stream(texto, llave)
 print("Texto cifrado:", textoCifrado)
 
 
 textoDescifrado = xor_stream(textoCifrado, llave)
-print("Texto descifrado:", textoDescifrado)
+print("Texto descifrado:", textoDescifrado) textoDescifrado)
