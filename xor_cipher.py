@@ -1,6 +1,6 @@
 import random
 
-texto = "Uide"
+texto = "Uide2026 seguridad"
 
 def generarLlave(longitud):
 
